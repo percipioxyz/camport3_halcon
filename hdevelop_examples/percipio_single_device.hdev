@@ -18,13 +18,21 @@
 <l>dev_open_window (0, 0, 1280, 960, 'black', WindowHandle)</l>
 <c></c>
 <c></c>
-<l>imageType := 'depth_640x480'             //choose rgb/depth/point3d/rgbp here</l>
+<l>imageType := 'depth_640x480'            //set rgb/depth/point3d/rgbp and resolution here</l>
+<l>colorSpace := 'depth'</l>
+<l>*imageType := 'rgb_640x480'</l>
+<l>*colorSpace := 'rgb'</l>
+<l>*imageType := 'point3d_640x480'  </l>
+<l>*colorSpace := 'point3d'</l>
+<l>*imageType := 'rgbp_640x480'</l>
+<l>*colorSpace := 'rgbp'</l>
+<c></c>
 <l>trigger   := 'false'</l>
-<l>cameraType1:= CameraTypeValues[1]</l>
-<l>deviceID1  := DeviceValues[1]</l>
+<l>cameraType:= CameraTypeValues[1]</l>
+<l>deviceID  := DeviceValues[1]</l>
 <c></c>
 <c></c>
-<l>open_framegrabber ('Percipio', 0, 0, 0, 0, 0, 0, 'default', -1, imageType, -1, trigger, cameraType1, deviceID1, -1, -1, AcqHandle)</l>
+<l>open_framegrabber ('Percipio', 0, 0, 0, 0, 0, 0, 'default', -1, imageType, -1, trigger, cameraType, deviceID, -1, -1, AcqHandle)</l>
 <l>get_framegrabber_param (AcqHandle, 'revision', Revision)</l>
 <l>get_framegrabber_param (AcqHandle, 'color_space', Color_space)</l>
 <l>get_framegrabber_param (AcqHandle, 'camera_para', camera_para)</l>
@@ -34,15 +42,16 @@
 <l>get_framegrabber_param (AcqHandle, 'device', device) </l>
 <l>get_framegrabber_param (AcqHandle, 'camera_type', camera_type) </l>
 <c></c>
-<l>get_framegrabber_param (AcqHandle, 'camera_laser_power', power_value_fetch) </l>
-<l>get_framegrabber_param (AcqHandle, 'camera_ir_gain', ir_gain_fetch) </l>
-<l>get_framegrabber_param (AcqHandle, 'camera_ir_analog_gain', ir_analog_gain_fetch) </l>
-<l>get_framegrabber_param (AcqHandle, 'camera_ir_exposure_time', ir_exposure_time_fetch) </l>
-<l>get_framegrabber_param (AcqHandle, 'camera_color_analog_gain', color_analog_gain_fetch) </l>
-<l>get_framegrabber_param (AcqHandle, 'camera_color_r_gain', color_r_gain_fetch) </l>
-<l>get_framegrabber_param (AcqHandle, 'camera_color_g_gain', color_g_gain_fetch)</l>
-<l>get_framegrabber_param (AcqHandle, 'camera_color_b_gain', color_b_gain_fetch) </l>
-<l>get_framegrabber_param (AcqHandle, 'camera_color_exposure_time', color_exposure_time_fetch) </l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_laser_power', power_value_fetch) </l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_ir_gain', ir_gain_fetch) </l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_ir_analog_gain', ir_analog_gain_fetch) </l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_ir_exposure_time', ir_exposure_time_fetch) </l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_color_analog_gain', color_analog_gain_fetch) </l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_color_r_gain', color_r_gain_fetch) </l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_color_g_gain', color_g_gain_fetch)</l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_color_b_gain', color_b_gain_fetch) </l>
+<l>*get_framegrabber_param (AcqHandle, 'camera_color_exposure_time', color_exposure_time_fetch) </l>
+<c></c>
 <c></c>
 <l>*power_value := 0</l>
 <l>*set_framegrabber_param (AcqHandle, 'camera_laser_power', power_value)</l>
@@ -64,30 +73,30 @@
 <l>*set_framegrabber_param (AcqHandle, 'camera_color_exposure_time', color_exposure_time)</l>
 <c></c>
 <c></c>
-<l>set_framegrabber_param (AcqHandle, 'camera_laser_power', power_value_fetch)</l>
-<l>set_framegrabber_param (AcqHandle, 'camera_ir_gain', ir_gain_fetch)</l>
-<l>set_framegrabber_param (AcqHandle, 'camera_ir_analog_gain', ir_analog_gain_fetch)</l>
-<l>set_framegrabber_param (AcqHandle, 'camera_ir_exposure_time', ir_exposure_time_fetch)</l>
-<l>set_framegrabber_param (AcqHandle, 'camera_color_analog_gain', color_analog_gain_fetch)</l>
-<l>set_framegrabber_param (AcqHandle, 'camera_color_r_gain', color_r_gain_fetch)</l>
-<l>set_framegrabber_param (AcqHandle, 'camera_color_g_gain', color_g_gain_fetch)</l>
-<l>set_framegrabber_param (AcqHandle, 'camera_color_b_gain', color_b_gain_fetch)</l>
-<l>set_framegrabber_param (AcqHandle, 'camera_color_exposure_time', color_exposure_time_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_laser_power', power_value_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_ir_gain', ir_gain_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_ir_analog_gain', ir_analog_gain_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_ir_exposure_time', ir_exposure_time_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_color_analog_gain', color_analog_gain_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_color_r_gain', color_r_gain_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_color_g_gain', color_g_gain_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_color_b_gain', color_b_gain_fetch)</l>
+<l>*set_framegrabber_param (AcqHandle, 'camera_color_exposure_time', color_exposure_time_fetch)</l>
 <c></c>
 <c></c>
 <l>grab_image_start (AcqHandle, -1)</l>
 <c></c>
 <l>while (true)</l>
 <l>    dev_set_window (WindowHandle)</l>
-<l>    if(imageType = 'rgb_1280x960' or imageType = 'rgb_640x480' or imageType = 'rgb_320x240')</l>
+<l>    if(colorSpace = 'rgb')</l>
 <l>        grab_image_async (rgb_image, AcqHandle, -1)</l>
 <l>        dev_display (rgb_image)</l>
 <l>    endif</l>
-<l>    if (imageType = 'depth_1280x960' or imageType = 'depth_640x480' or imageType = 'depth_320x240')</l>
+<l>    if (colorSpace = 'depth')</l>
 <l>        depth (ImageConverted, AcqHandle)</l>
 <l>        dev_display (ImageConverted)</l>
 <l>    endif</l>
-<l>    if (imageType = 'point3d_1280x960' or imageType = 'point3d_640x480' or imageType = 'point3d_320x240')</l>
+<l>    if (colorSpace = 'point3d')</l>
 <l>        grab_image_async (Image, AcqHandle, -1)</l>
 <l>        decompose3 (Image, X, Y, Z)</l>
 <l>        get_image_type (Image, Type)</l>
@@ -99,7 +108,7 @@
 <l>        xyz_to_object_model_3d (Xs, Ys, Zs, ObjectModel3D)</l>
 <l>        visualize_object_model_3d (WindowHandle, ObjectModel3D, [], [], [], [], [], [], [], PoseItem)  </l>
 <l>    endif</l>
-<l>    if (imageType = 'rgbp_1280x960' or imageType = 'rgbp_640x480' or imageType = 'rgbp_320x240')</l>
+<l>    if (colorSpace = 'rgbp')</l>
 <l>        grab_image_async (Image, AcqHandle, -1)</l>
 <l>        decompose6(Image,Image1,Image2,Image3,X,Y,Z)</l>
 <l>        compose3(Image1,Image2, Image3, Multichannel)</l>
